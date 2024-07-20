@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitud de Inscripción</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="panel">
+            <div class="panel-heading text-center">
+                <img src="https://servicios.registromercantil.gob.gt/formatoSolicitudes/Assets/logo-rm-wide-sm-2.png" alt="Logo">
+                <h5 class="panel-title"><b>Este formato de solicitud es GRATUITO, PROHIBIDO su venta.</b></h5>
+                <div class="input-group">
+                    <span class="input-group-text">Número Formato</span>
+                    <input type="text" class="form-control" name="correlativo" id="correlativo" value="0" disabled>
+                    <span class="input-group-text">Código</span>
+                    <input type="text" class="form-control" value="0" disabled>
+                </div>
+            </div>
+
+            <form action="/formatoSolicitudes/Solicitudes/Pdf_inscp_comerciante_ind_empresa" method="post" enctype="multipart/form-data" onkeydown="return DisableEnterSubmit(event.keyCode);">
+                <h5 class="text-center"><b>SOLICITUD DE INSCRIPCIÓN DE COMERCIANTE INDIVIDUAL Y EMPRESA</b></h5>
+                <h6 class="text-center"><b>Señor Registrador Mercantil General de la República.</b></h6>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="P_NOMBRE" id="P_NOMBRE" placeholder="Primer Nombre">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="S_NOMBRE" id="S_NOMBRE" placeholder="Segundo Nombre">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="O_NOMBRE" id="O_NOMBRE" placeholder="Otro Nombre">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="P_APELLIDO" id="P_APELLIDO" placeholder="Primer Apellido">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="S_APELLIDO" id="S_APELLIDO" placeholder="Segundo Apellido">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="A_CASADA" id="A_CASADA" placeholder="Apellido Casada">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="EDAD" id="EDAD" placeholder="Edad" value="0">
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control" name="ESTADO_CIVIL" id="ESTADO_CIVIL">
+                            <option value="">- Seleccione una Opción -</option>
+                            <option>Soltero</option>
+                            <option>Casado</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="NACIONALIDAD" id="NACIONALIDAD" placeholder="Nacionalidad">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="PROFESION" id="PROFESION" placeholder="Profesión u Oficio">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="DEPARTAMENTO" id="DEPARTAMENTO" placeholder="Departamento">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" class="form-control" name="DIRECCION" id="DIRECCION" placeholder="Con Residencia en:">
+                </div>
+
+                <div class="form-group">
+                    <label>DOCUMENTO DE IDENTIFICACIÓN</label>
+                    <div class="checkbox-group">
+                        <input type="checkbox" class="form-check-input" name="PASAPORTE_PER" id="PASAPORTE_PER" onclick="opcion_documento()">
+                        <label for="PASAPORTE_PER">Pasaporte</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" class="form-check-input" name="DPI_PER" id="DPI_PER" onclick="opcion_documento()">
+                        <label for="DPI_PER">Documento Personal de Identificación (DPI)</label>
+                    </div>
+                    <input type="text" class="form-control" name="PASAPORTE" id="PASAPORTE" placeholder="Ingrese su pasaporte" style="display:none;">
+                    <input type="text" class="form-control" name="DPI" id="DPI" placeholder="Ingrese su DPI" style="display:none;">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="NIT" id="NIT" placeholder="Nit">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="TELEFONO" id="TELEFONO" placeholder="No. De Teléfono y/o Celular">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" name="CORREO" id="CORREO" placeholder="Correo Electrónico">
+                    </div>
+                </div>
+
+                <h6 class="text-center"><b>Atentamente:</b></h6>
+                <h5 class="text-center"><b>PIDO:</b></h5>
+
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" name="INSCRI_COMERCIANTE_INDIVIDUAL" id="INSCRI_COMERCIANTE_INDIVIDUAL" onclick="checkIfChecked()">
+                    <label for="INSCRI_COMERCIANTE_INDIVIDUAL"><b>Que se me inscriba como comerciante individual</b></label>
+                </div>
+
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" name="INSCRI_EMPRESA" id="INSCRI_EMPRESA" onclick="checkIfChecked()">
+                    <label for="INSCRI_EMPRESA"><b>Que se inscriba la siguiente empresa de mi propiedad o Propiedad de:</b></label>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" class="form-control" name="NOMBRE_PROPIETARIO" id="NOMBRE_PROPIETARIO" placeholder="Nombre del Propietario" disabled>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" class="form-control" name="NOMBRE_COMERCIAL" id="NOMBRE_COMERCIAL" placeholder="Nombre Comercial">
+                </div>
+
+                <div class="form-group">
+                    <input type="text" class="form-control" name="DIRECCION_COMERCIAL" id="DIRECCION_COMERCIAL" placeholder="Dirección Completa">
+                </div>
+
+                <div class="form-group">
+                    <label for="OBJETO"><b>Objeto:</b></label>
+                    <textarea class="form-control" name="OBJETO" id="OBJETO" rows="4" placeholder="Descripción del Objeto" maxlength="2000"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="ACTIVIDAD"><b>Actividad:</b></label>
+                    <textarea class="form-control" name="ACTIVIDAD" id="ACTIVIDAD" rows="4" placeholder="Descripción de la Actividad" maxlength="2000"></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="CONTRIBUYENTE" id="CONTRIBUYENTE" placeholder="Número de Contribuyente">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="NO_ACTA" id="NO_ACTA" placeholder="Número de Acta">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" class="form-control" name="PAGARE" id="PAGARE" placeholder="Número de Pagaré">
+                </div>
+
+                <div class="form-group">
+                    <label for="DOCUMENTOS_PRESENTADOS"><b>Documentos Presentados:</b></label>
+                    <textarea class="form-control" name="DOCUMENTOS_PRESENTADOS" id="DOCUMENTOS_PRESENTADOS" rows="4" placeholder="Documentos Presentados" maxlength="2000"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <input type="file" class="form-control-file" name="ARCHIVO_ADJUNTO" id="ARCHIVO_ADJUNTO">
+                </div>
+
+                <button type="submit" class="btn-submit">Enviar</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
